@@ -95,7 +95,8 @@ public class Main {
     public static void task4() {
         float money = 15000f;
         int target = 12_000_000;
-        float interestRate = 1.07f;
+        float percent = 7f;
+        float interestRate = 1 + percent / 100;
         int counter = 0;
         while (money < target) {
             counter++;
@@ -110,7 +111,8 @@ public class Main {
     public static void task5() {
         float money = 15000f;
         int target = 12_000_000;
-        float interestRate = 1.07f;
+        float percent = 7f;
+        float interestRate = 1 + percent / 100;
         int counter = 0;
         int evaluationPeriod = 6;
 
@@ -131,8 +133,9 @@ public class Main {
     //Напишите программу, которая будет выводить сумму накоплений за каждые полгода в течение 9 лет.
     public static void task6() {
         float money = 15000f;
-        float interestRate = 1.07f;
         int counter = 0;
+        float percent = 7f;
+        float interestRate = 1 + percent / 100;
         int evaluationPeriod = 6;
         int months = 12 * 9;
 
@@ -158,10 +161,8 @@ public class Main {
         int firstFriday = 3;
         final int daysInMonth = 31;
         final int weekLength = 7;
-        for (int i = 1; i <= daysInMonth; i++) {
-            if ((i - firstFriday) % weekLength == 0) {
-                System.out.printf("Сегодня пятница, %d-е. Необходимо подготовить отчет\n", i);
-            }
+        for (int i = firstFriday; i <= daysInMonth; i += weekLength) {
+            System.out.printf("Сегодня пятница, %d-е. Необходимо подготовить отчет\n", i);
         }
     }
 
@@ -181,8 +182,8 @@ public class Main {
         int pastLimit = 200;
         int futureLimit = 100;
         int period = 79;
-        for (int i = 0; i <= currentYear + futureLimit; i++) {
-            if (i % period == 0 && i >= (currentYear - pastLimit)) {
+        for (int i = 0; i <= currentYear + futureLimit; i+=period) {
+            if (i >= (currentYear - pastLimit)) {
                 System.out.println(i);
             }
         }
